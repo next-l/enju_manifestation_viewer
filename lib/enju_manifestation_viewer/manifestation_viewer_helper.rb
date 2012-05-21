@@ -12,7 +12,7 @@ module EnjuManifestationViewer
         render :partial => 'manifestations/nicovideo', :locals => {:manifestation => manifestation}
       when manifestation.flickr.present?
         render :partial => 'manifestations/flickr', :locals => {:manifestation => manifestation}
-      when manifestation.try(:ipaper_id)
+      when manifestation.respond_to?(:ipaper_id)
         render :partial => 'manifestations/scribd', :locals => {:manifestation => manifestation}
       end
     end
