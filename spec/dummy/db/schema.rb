@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 20110916091020) do
 
   create_table "manifestations", :force => true do |t|
     t.text     "original_title",                              :null => false
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(:version => 5) do
     t.integer  "extent_id",                :default => 1,     :null => false
     t.integer  "start_page"
     t.integer  "end_page"
-    t.decimal  "height"
-    t.decimal  "width"
-    t.decimal  "depth"
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "depth"
     t.string   "isbn"
     t.string   "isbn10"
     t.string   "wrong_isbn"
@@ -42,15 +42,11 @@ ActiveRecord::Schema.define(:version => 5) do
     t.string   "issn"
     t.integer  "price"
     t.text     "fulltext"
-    t.string   "volume_number_list"
-    t.string   "issue_number_list"
-    t.string   "serial_number_list"
+    t.string   "volume_number_string"
+    t.string   "issue_number_string"
+    t.string   "serial_number_string"
     t.integer  "edition"
     t.text     "note"
-    t.integer  "produces_count",           :default => 0,     :null => false
-    t.integer  "exemplifies_count",        :default => 0,     :null => false
-    t.integer  "embodies_count",           :default => 0,     :null => false
-    t.integer  "work_has_subjects_count",  :default => 0,     :null => false
     t.boolean  "repository_content",       :default => false, :null => false
     t.integer  "lock_version",             :default => 0,     :null => false
     t.integer  "required_role_id",         :default => 1,     :null => false
@@ -58,6 +54,11 @@ ActiveRecord::Schema.define(:version => 5) do
     t.integer  "required_score",           :default => 0,     :null => false
     t.integer  "frequency_id",             :default => 1,     :null => false
     t.boolean  "subscription_master",      :default => false, :null => false
+    t.integer  "ipaper_id"
+    t.string   "ipaper_access_key"
+    t.integer  "volume_number"
+    t.integer  "issue_number"
+    t.integer  "serial_number"
   end
 
   add_index "manifestations", ["access_address"], :name => "index_manifestations_on_access_address"

@@ -41,6 +41,7 @@ module EnjuManifestationViewer
           if paths[3] == "sets"
             info[:user] = paths[2]
             info[:set_id] = paths[4]
+            return info
           end
         end
       end

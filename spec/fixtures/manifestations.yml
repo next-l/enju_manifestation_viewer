@@ -195,7 +195,7 @@ manifestation_00022:
 manifestation_00023: 
   carrier_type_id: 1
   isbn: 
-  created_at: 2008-04-17 00:34:01 +09:00
+  updated_at: 2008-04-17 00:34:01 +09:00
   original_title: "世界の美しい図書館集めてみた【第一弾】"
   price: 
   manifestation_identifier: 
@@ -1683,7 +1683,7 @@ manifestation_00201:
   language_id: 1
   isbn: 9876543210201
   updated_at: 2010-03-01 16:14:18 +09:00
-  original_title: "テスト雑誌１月号"
+  original_title: "テスト雑誌2005年１月号"
   price:
   manifestation_identifier:
   depth:
@@ -1694,7 +1694,7 @@ manifestation_00201:
   width:
   created_at: 2007-11-19 17:55:41 UTC
   frequency_id: 3
-  issn: 12345678
+  issn: 09130000
 manifestation_00202:
   carrier_type_id: 1
   language_id: 1
@@ -1712,12 +1712,15 @@ manifestation_00202:
   created_at: 2007-11-19 17:55:41 UTC
   frequency_id: 3
   issn: 12345678
+  serial_number: 2
+  volume_number: 1
+  issue_number: 2
 manifestation_00203:
   carrier_type_id: 1
   language_id: 1
   isbn: 9876543210203
   updated_at: 2010-03-01 16:14:18 +09:00
-  original_title: "テスト単行本記事"
+  original_title: "テスト単行本記事2005"
   price:
   manifestation_identifier:
   depth:
@@ -1938,11 +1941,23 @@ manifestation_00216:
   created_at: 2010-03-19 13:00:00 UTC
   required_role_id: 1
   repository_content: false
-
-
-
-
-
+manifestation_00217:
+  carrier_type_id: 1
+  language_id: 1
+  isbn:
+  updated_at: 2010-03-19 13:00:00 +09:00
+  original_title: "Flickr"
+  price:
+  manifestation_identifier:
+  depth:
+  date_of_publication:
+  access_address: http://www.flickr.com/photos/japan_library_association/sets/72157626376861041/
+  id: 217
+  height:
+  width:
+  created_at: 2010-03-19 13:00:00 UTC
+  required_role_id: 1
+  repository_content: false
 
 
 
@@ -1958,8 +1973,8 @@ manifestation_00216:
 #  manifestation_identifier        :string(255)
 #  date_of_publication             :datetime
 #  date_copyrighted                :datetime
-#  created_at                      :datetime
-#  updated_at                      :datetime
+#  created_at                      :datetime        not null
+#  updated_at                      :datetime        not null
 #  deleted_at                      :datetime
 #  access_address                  :string(255)
 #  language_id                     :integer         default(1), not null
@@ -1967,9 +1982,9 @@ manifestation_00216:
 #  extent_id                       :integer         default(1), not null
 #  start_page                      :integer
 #  end_page                        :integer
-#  height                          :decimal(, )
-#  width                           :decimal(, )
-#  depth                           :decimal(, )
+#  height                          :integer
+#  width                           :integer
+#  depth                           :integer
 #  isbn                            :string(255)
 #  isbn10                          :string(255)
 #  wrong_isbn                      :string(255)
@@ -1991,8 +2006,6 @@ manifestation_00216:
 #  required_score                  :integer         default(0), not null
 #  frequency_id                    :integer         default(1), not null
 #  subscription_master             :boolean         default(FALSE), not null
-#  ipaper_id                       :integer
-#  ipaper_access_key               :string(255)
 #  attachment_file_name            :string(255)
 #  attachment_content_type         :string(255)
 #  attachment_file_size            :integer
@@ -2005,13 +2018,15 @@ manifestation_00216:
 #  date_submitted                  :datetime
 #  date_accepted                   :datetime
 #  date_caputured                  :datetime
-#  ndl_bib_id                      :string(255)
-#  file_hash                       :string(255)
 #  pub_date                        :string(255)
 #  edition_string                  :string(255)
 #  volume_number                   :integer
 #  issue_number                    :integer
 #  serial_number                   :integer
 #  ndc                             :string(255)
+#  content_type_id                 :integer         default(1)
+#  year_of_publication             :integer
+#  attachment_meta                 :text
+#  month_of_publication            :integer
 #
 
