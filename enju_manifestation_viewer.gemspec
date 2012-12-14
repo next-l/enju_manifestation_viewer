@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = EnjuManifestationViewer::VERSION
   s.authors     = ["Kosuke Tanabe"]
   s.email       = ["tanabe@mwr.mediacom.keio.ac.jp"]
-  s.homepage    = "https://github.com/nabeta/enju_manifestation_viewer"
+  s.homepage    = "https://github.com/next-l/enju_manifestation_viewer"
   s.summary     = "enju_manifestation_viewer plugin"
   s.description = "embed external contents on Next-L Enju"
 
