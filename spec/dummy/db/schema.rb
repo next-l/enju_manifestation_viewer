@@ -54,8 +54,6 @@ ActiveRecord::Schema.define(:version => 20110916091020) do
     t.integer  "required_score",           :default => 0,     :null => false
     t.integer  "frequency_id",             :default => 1,     :null => false
     t.boolean  "subscription_master",      :default => false, :null => false
-    t.integer  "ipaper_id"
-    t.string   "ipaper_access_key"
     t.integer  "volume_number"
     t.integer  "issue_number"
     t.integer  "serial_number"

@@ -29,7 +29,7 @@ describe EnjuManifestationViewer::ManifestationViewerHelper do
     helper.embed_content(manifestations(:manifestation_00217)).should =~ /<object width="400" height="300"><param name="flashvars"/
   end
 
-  it "should render scribd template" do
-    helper.embed_content(manifestations(:manifestation_00001)).should =~ /<td colspan="2" style="width: 700px">/
-  end
+  #it "should render scribd template" do
+  #  helper.embed_content(manifestations(:manifestation_00001)).should =~ /<td colspan="2" style="width: 700px">/
+  #end
 end
