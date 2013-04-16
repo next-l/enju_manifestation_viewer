@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'vcr'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -29,4 +30,11 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassette_library'
+  c.hook_into :fakeweb
+  c.configure_rspec_metadata!
+  c.allow_http_connections_when_no_cassette = true
 end
