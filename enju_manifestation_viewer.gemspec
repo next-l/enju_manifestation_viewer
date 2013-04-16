@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "embed external contents on Next-L Enju"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["spec/**/*"]
+  s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"]
 
   s.add_dependency "rails", "~> 3.2"
   # s.add_dependency "jquery-rails"
