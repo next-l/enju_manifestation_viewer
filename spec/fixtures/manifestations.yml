@@ -1816,6 +1816,23 @@ manifestation_00216:
   required_role_id: 1
   repository_content: false
 
+manifestation_00217:
+  carrier_type_id: 1
+  language_id: 1
+  updated_at: 2010-03-19 13:00:00 +09:00
+  original_title: "Flickr"
+  price:
+  manifestation_identifier:
+  depth:
+  date_of_publication:
+  access_address: http://www.flickr.com/photos/japan_library_association/sets/72157626376861041/
+  id: 217
+  height:
+  width:
+  created_at: 2010-03-19 13:00:00 UTC
+  required_role_id: 1
+  repository_content: false
+
 # == Schema Information
 #
 # Table name: manifestations
