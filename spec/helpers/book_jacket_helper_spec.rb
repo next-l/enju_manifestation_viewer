@@ -12,7 +12,7 @@ require 'spec_helper'
 #   end
 # end
 describe EnjuManifestationViewer::BookJacketHelper do
-  fixtures :manifestations
+  fixtures :all
 
   it "should get screenshot", :vcr => true do
     helper.screenshot_tag(manifestations(:manifestation_00003)).should eq "<a href=\"http://www.slis.keio.ac.jp/\"><img alt=\"これからの生命科学研究者のためのバイオ特許入門講座\" border=\"0\" height=\"128\" itemprop=\"image\" src=\"http://mozshot.nemui.org/shot?http://www.slis.keio.ac.jp/\" width=\"128\" /></a>"
@@ -23,6 +23,6 @@ describe EnjuManifestationViewer::BookJacketHelper do
   end
 
   it "should generate a link to Amazon" do
-    helper.amazon_link(manifestations(:manifestation_00001).isbn).should =~ /http:\/\/www.amazon.co.jp\/dp\/4798002062/
+    helper.amazon_link(manifestations(:manifestation_00001).identifier_contents(:isbn).first).should =~ /http:\/\/www.amazon.co.jp\/dp\/4798002062/
   end
 end

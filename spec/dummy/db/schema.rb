@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20130506175834) do
     t.integer  "volume_number"
     t.integer  "issue_number"
     t.integer  "serial_number"
+    t.string   "pub_date"
+    t.boolean  "periodical"
   end
 
   add_index "manifestations", ["access_address"], :name => "index_manifestations_on_access_address"

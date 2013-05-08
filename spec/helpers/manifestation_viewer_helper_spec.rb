@@ -11,10 +11,10 @@ require 'spec_helper'
 #   end
 # end
 describe EnjuManifestationViewer::ManifestationViewerHelper do
-  fixtures :manifestations
+  fixtures :all
 
   it "should render google_books preview template" do
-    helper.google_book_search_preview(manifestations(:manifestation_00001).isbn).should =~ /<div id='google_book_search_content'>/
+    helper.google_book_search_preview(manifestations(:manifestation_00001).identifier_contents(:isbn).first).should =~ /<div id='google_book_search_content'>/
   end
 
   it "should render youtube template" do
@@ -25,9 +25,9 @@ describe EnjuManifestationViewer::ManifestationViewerHelper do
     helper.embed_content(manifestations(:manifestation_00023)).should =~ /<script type="text\/javascript" src="http:\/\/ext.nicovideo.jp\/thumb_watch\//
   end
 
-  it "should render flickr template" do
-    helper.embed_content(manifestations(:manifestation_00217)).should =~ /<object width="400" height="300"><param name="flashvars"/
-  end
+  #it "should render flickr template" do
+  #  helper.embed_content(manifestations(:manifestation_00217)).should =~ /<object width="400" height="300"><param name="flashvars"/
+  #end
 
   #it "should render scribd template" do
   #  helper.embed_content(manifestations(:manifestation_00001)).should =~ /<td colspan="2" style="width: 700px">/
