@@ -40,6 +40,6 @@
 </script>
 <% if @manifestation %>
   <% if @manifestation.identifier_contents(:isbn).first %>
-    <script src="https://www.googleapis.com/books/v1/volumes?q=isbn:<%= @manifestation.identifier_contents(:isbn) %>&amp;callback=addTheCover"></script>
+    <script src="https://www.googleapis.com/books/v1/volumes?q=isbn:<%= @manifestation.identifier_contents(:isbn).first %>&amp;callback=addTheCover"></script>
   <% end %>
 <% end %>
