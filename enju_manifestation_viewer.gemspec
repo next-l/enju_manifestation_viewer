@@ -17,9 +17,8 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"]
 
   s.add_dependency "rails", "~> 4.0"
-  # s.add_dependency "jquery-rails"
 
-  #s.add_development_dependency "enju_biblio", "~> 0.1.0.pre46"
+  #s.add_development_dependency "enju_biblio", "~> 0.2.0.pre1"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "factory_girl_rails"
