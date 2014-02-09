@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = "enju_manifestation_viewer"
   s.version     = EnjuManifestationViewer::VERSION
   s.authors     = ["Kosuke Tanabe"]
-  s.email       = ["tanabe@mwr.mediacom.keio.ac.jp"]
+  s.email       = ["kosuke@e23.jp"]
   s.homepage    = "https://github.com/next-l/enju_manifestation_viewer"
   s.summary     = "enju_manifestation_viewer plugin"
   s.description = "embed external contents on Next-L Enju"
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2"
   # s.add_dependency "jquery-rails"
 
-  s.add_development_dependency "enju_biblio", "~> 0.1.0.pre49"
+  s.add_development_dependency "enju_biblio", "~> 0.1.0.pre50"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "factory_girl_rails"
