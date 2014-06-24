@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2"
   # s.add_dependency "jquery-rails"
 
-  s.add_development_dependency "enju_leaf", "~> 1.1.0.rc9"
+  s.add_development_dependency "enju_leaf", "~> 1.1.0.rc10"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails", "2.99"
   s.add_development_dependency "factory_girl_rails"
