@@ -45,7 +45,7 @@
       var thumb_element = document.getElementById('gbsthumbnail');
       if (thumb_element.innerHTML === "") {
         <% if Setting.book_jacket.unknown_resource.blank? %>
-          thumb_element.innerHTML = '<%= image_tag("unknown_resource.png", :size => "150x150", :alt => "*") %>';
+          thumb_element.innerHTML = '<%= image_tag("unknown_resource.png", size: "150x150", alt: "*") %>';
         <% else %>
           thumb_element.innerHTML = '<%= Setting.book_jacket.unknown_resource %>';
         <% end %>
