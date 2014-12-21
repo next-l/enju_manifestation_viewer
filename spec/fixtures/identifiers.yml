@@ -16,6 +16,7 @@ identifier_00001:
   manifestation_id: 1
   identifier_type_id: 1
   body: "4798002062"
+  primary: true
 
 identifier_00002:
   manifestation_id: 2
