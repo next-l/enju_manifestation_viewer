@@ -15,7 +15,7 @@ describe EnjuManifestationViewer::BookJacketHelper do
   fixtures :all
 
   it "should get screenshot", :vcr => true do
-    helper.screenshot_tag(manifestations(:manifestation_00003)).should eq "<a href=\"http://www.slis.keio.ac.jp/\"><img alt=\"これからの生命科学研究者のためのバイオ特許入門講座\" border=\"0\" height=\"128\" itemprop=\"image\" src=\"http://mozshot.nemui.org/shot?http://www.slis.keio.ac.jp/\" width=\"128\" /></a>"
+    helper.screenshot_tag(manifestations(:manifestation_00003)).should =~ /<a href=\"http:\/\/www.slis.keio.ac.jp\/\">/
   end
 
   it "should get book jacket" do
