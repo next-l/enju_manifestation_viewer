@@ -1,5 +1,5 @@
 <% unless manifestation.identifier_contents(:isbn).empty? %>
   <div id="gbsthumbnail" class="book_jacket"></div>
 <% else %>
-  <%= image_tag("unknown_resource.png", :size => "150x150", :alt => "*") %>
+  <%= image_tag("unknown_resource.png", size: "150x150", alt: "*") %>
 <% end %>

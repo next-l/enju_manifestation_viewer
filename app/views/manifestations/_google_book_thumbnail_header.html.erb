@@ -1,39 +1,54 @@
 <script type="text/javascript">
+  function make_thumbnail_link( image, book ) {
+    var link = '';
+    var thumbnail = image.thumbnail.replace('zoom=5', 'zoom=1');
+    if ( document.location.protocol == 'https:' ) {
+      var parser = document.createElement('a');
+      parser.href = thumbnail;
+      parser.protocol = 'https:';
+      parser.hostname = 'encrypted.google.com';
+      thumbnail = parser.href;
+    }
+    if (thumbnail) {
+      var link = '<img src="' + thumbnail + '" alt="' + book.volumeInfo.title + '" />';
+      if (book.accessInfo && book.accessInfo.viewability != "NO_PAGES") {
+	var preview = book.volumeInfo.previewLink;
+        link += '<br /><a href="' + preview + '" target="_blank"><img border=0 src="//www.google.com/googlebooks/images/gbs_preview_button1.gif" title="Google Preview" alt="Google Preview" /></a>';
+      }
+    }
+    var thumb_element = document.getElementById('gbsthumbnail');
+    if (thumb_element) {
+      thumb_element.innerHTML = link;
+    }
+  }
   function addTheCover(booksInfo){
     jQuery(function(){
       var link = '';
       for (i in booksInfo.items) {
-        var book = booksInfo.items[i]
+        var book = booksInfo.items[i];
         var image = book.volumeInfo.imageLinks;
         if (image && image.thumbnail != undefined) {
-          var thumbnail = image.thumbnail.replace('zoom=5', 'zoom=1');
-          if ( document.location.protocol == 'https:' ) {
-            var parser = document.createElement('a');
-            parser.href = thumbnail;
-            parser.protocol = 'https:';
-            parser.hostname = 'encrypted.google.com';
-            thumbnail = parser.href;
-          }
-          if (thumbnail) {
-            var link = '<img src="' + thumbnail + '" alt="' + book.volumeInfo.title + '" />';
-            if (book.accessInfo && book.accessInfo.viewability != "NO_PAGES") {
-              var preview = book.volumeInfo.previewLink;
-              link += '<br /><a href="' + preview + '" target="_blank"><img border=0 src="//www.google.com/googlebooks/images/gbs_preview_button1.gif" title="Google Preview" alt="Google Preview" /></a>';
-            }
-          }
-        }
+          make_thumbnail_link(image, book);
+	} else {
+	  var self_url = book.selfLink;
+	  jQuery.ajax({
+	    url: self_url,
+	    async: false
+	  }).done( function(data) {
+	    var image = data.volumeInfo.imageLinks;
+            if (image && image.thumbnail != undefined) {
+              make_thumbnail_link(image, data);
+	    }
+	  });
+	}
       }
-      if (link === '') {
-        <% if Setting.book_jacket.unknown_resource.blank? %>
-          var link = '<%= image_tag("unknown_resource.png", :size => "150x150", :alt => "*") %>';
-        <% else %>
-          var link = '<%= Setting.book_jacket.unknown_resource %>';
-        <% end %>
-      }
-
       var thumb_element = document.getElementById('gbsthumbnail');
-      if (thumb_element) {
-        thumb_element.innerHTML = link;
+      if (thumb_element.innerHTML === "") {
+        <% if Setting.book_jacket.unknown_resource.blank? %>
+          thumb_element.innerHTML = '<%= image_tag("unknown_resource.png", size: "150x150", alt: "*") %>';
+        <% else %>
+          thumb_element.innerHTML = '<%= Setting.book_jacket.unknown_resource %>';
+        <% end %>
       }
     });
   }
