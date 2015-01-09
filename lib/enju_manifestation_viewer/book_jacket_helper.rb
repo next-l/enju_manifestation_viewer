@@ -26,7 +26,7 @@ module EnjuManifestationViewer
       link
     end
 
-    def screenshot_tag(manifestation, generator = Setting.screenshot.generator)
+    def screenshot_tag(manifestation, generator = Rails.application.config_for(:enju_leaf).screenshot.generator)
       return nil unless manifestation.try(:access_address)
       case generator
       when :mozshot
@@ -40,27 +40,27 @@ module EnjuManifestationViewer
       end
     end
 
-    def book_jacket_tag(manifestation, generator = Setting.book_jacket.source)
+    def book_jacket_tag(manifestation, generator = Rails.application.config_for(:enju_leaf).book_jacket.source)
       return nil unless manifestation
       case generator
       when :amazon
-        return nil unless Setting.amazon.hostname
+        return nil unless Rails.application.config_for(:enju_leaf).amazon.hostname
         book_jacket = manifestation.amazon_book_jacket
         if book_jacket
-          link_to image_tag(book_jacket[:url], :width => book_jacket[:width], :height => book_jacket[:height], :alt => manifestation.original_title, :class => 'book_jacket', :itemprop => 'image'), "http://#{Setting.amazon.hostname}/dp/#{book_jacket[:asin]}"
+          link_to image_tag(book_jacket[:url], :width => book_jacket[:width], :height => book_jacket[:height], :alt => manifestation.original_title, :class => 'book_jacket', :itemprop => 'image'), "http://#{Rails.application.config_for(:enju_leaf).amazon.hostname}/dp/#{book_jacket[:asin]}"
         end
       when :google
         render :partial => 'manifestations/google_book_thumbnail', :locals => {:manifestation => manifestation}
       end
     end
 
-    def amazon_link(asin, hostname = Setting.amazon.hostname)
+    def amazon_link(asin, hostname = Rails.application.config_for(:enju_leaf)["amazon"]["hostname"])
       return nil if asin.blank?
       "http://#{hostname}/dp/#{asin}"
     end
 
     def book_jacket_source_link
-      case Setting.book_jacket.source
+      case Rails.application.config_for(:enju_leaf)["book_jacket"]["source"]
       when :google
         link_to "Google Books", "http://books.google.com/"
       when :amazon
@@ -79,7 +79,7 @@ module EnjuManifestationViewer
     end
 
     def screenshot_generator_link
-      case Setting.screenshot.generator
+      case Rails.application.config_for(:enju_leaf)["screenshot"]["generator"]
       when :mozshot
         link_to "MozShot", "http://mozshot.nemui.org/"
       when :simpleapi
