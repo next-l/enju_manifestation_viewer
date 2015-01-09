@@ -26,7 +26,7 @@ module EnjuManifestationViewer
       link
     end
 
-    def screenshot_tag(manifestation, generator = Rails.application.config_for(:enju_leaf).screenshot.generator)
+    def screenshot_tag(manifestation, generator = Rails.application.config_for(:enju_leaf)["screenshot"]["generator"])
       return nil unless manifestation.try(:access_address)
       case generator
       when :mozshot
@@ -40,14 +40,14 @@ module EnjuManifestationViewer
       end
     end
 
-    def book_jacket_tag(manifestation, generator = Rails.application.config_for(:enju_leaf).book_jacket.source)
+    def book_jacket_tag(manifestation, generator = Rails.application.config_for(:enju_leaf)["book_jacket"]["source"])
       return nil unless manifestation
       case generator
       when :amazon
-        return nil unless Rails.application.config_for(:enju_leaf).amazon.hostname
+        return nil unless Rails.application.config_for(:enju_leaf)["amazon"]["hostname"]
         book_jacket = manifestation.amazon_book_jacket
         if book_jacket
-          link_to image_tag(book_jacket[:url], :width => book_jacket[:width], :height => book_jacket[:height], :alt => manifestation.original_title, :class => 'book_jacket', :itemprop => 'image'), "http://#{Rails.application.config_for(:enju_leaf).amazon.hostname}/dp/#{book_jacket[:asin]}"
+          link_to image_tag(book_jacket[:url], :width => book_jacket[:width], :height => book_jacket[:height], :alt => manifestation.original_title, :class => 'book_jacket', :itemprop => 'image'), "http://#{Rails.application.config_for(:enju_leaf)["amazon"]["hostname"]}/dp/#{book_jacket[:asin]}"
         end
       when :google
         render :partial => 'manifestations/google_book_thumbnail', :locals => {:manifestation => manifestation}
