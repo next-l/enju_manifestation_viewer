@@ -1,5 +1,5 @@
 = EnjuManifestationViewer
-{<img src="https://travis-ci.org/next-l/enju_manifestation_viewer.png?branch=master" alt="Build Status" />}[http://travis-ci.org/next-l/enju_manifestation_viewer]
+{<img src="https://travis-ci.org/next-l/enju_manifestation_viewer.svg?branch=master" alt="Build Status" />}[http://travis-ci.org/next-l/enju_manifestation_viewer]
 {<img src="https://img.shields.io/coveralls/next-l/enju_manifestation_viewer.svg" alt="Coverage Status" />}[https://coveralls.io/r/next-l/enju_nii?branch=master]
 {<img src="https://hakiri.io/github/next-l/enju_manifestation_viewer/master.svg" alt="security" />}[https://hakiri.io/github/next-l/enju_manifestation_viewer/master]
 
