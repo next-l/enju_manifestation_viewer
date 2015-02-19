@@ -26,44 +26,44 @@ module EnjuManifestationViewer
       link
     end
 
-    def screenshot_tag(manifestation, generator = Setting.screenshot.generator)
+    def screenshot_tag(manifestation, generator = ENV['ENJU_SCREENSHOT_GENERATOR'])
       return nil unless manifestation.try(:access_address)
       case generator
-      when :mozshot
+      when "mozshot"
         link_to image_tag("http://mozshot.nemui.org/shot?#{manifestation.access_address}", :width => 128, :height => 128, :alt => manifestation.original_title, :border => 0, :itemprop => 'image'), manifestation.access_address
-      when :simpleapi
+      when "simpleapi"
         link_to image_tag("http://img.simpleapi.net/small/#{manifestation.access_address}", :width => 128, :height => 128, :alt => manifestation.original_title, :border => 0, :itemprop => 'image'), manifestation.access_address
-      when :heartrails
+      when "heartrails"
         link_to image_tag("http://capture.heartrails.com/medium?#{manifestation.access_address}", :width => 120, :height => 90, :alt => manifestation.original_title, :border => 0, :itemprop => 'image'), manifestation.access_address
-      when :thumbalizr
+      when "thumbalizr"
         link_to image_tag("http://api.thumbalizr.com/?url=#{manifestation.access_address}&width=128", :width => 128, :height => 144, :alt => manifestation.original_title, :border => 0, :itemprop => 'image'), manifestation.access_address
       end
     end
 
-    def book_jacket_tag(manifestation, generator = Setting.book_jacket.source)
+    def book_jacket_tag(manifestation, generator = ENV['ENJU_BOOK_JACKET_SOURCE'])
       return nil unless manifestation
       case generator
-      when :amazon
-        return nil unless Setting.amazon.hostname
+      when "amazon"
+        return nil unless ENV['ENJU_AMAZON_HOSTNAME']
         book_jacket = manifestation.amazon_book_jacket
         if book_jacket
-          link_to image_tag(book_jacket[:url], :width => book_jacket[:width], :height => book_jacket[:height], :alt => manifestation.original_title, :class => 'book_jacket', :itemprop => 'image'), "http://#{Setting.amazon.hostname}/dp/#{book_jacket[:asin]}"
+          link_to image_tag(book_jacket[:url], :width => book_jacket[:width], :height => book_jacket[:height], :alt => manifestation.original_title, :class => 'book_jacket', :itemprop => 'image'), "http://#{ENV['ENJU_AMAZON_HOSTNAME']}/dp/#{book_jacket[:asin]}"
         end
-      when :google
+      when "google"
         render :partial => 'manifestations/google_book_thumbnail', :locals => {:manifestation => manifestation}
       end
     end
 
-    def amazon_link(asin, hostname = Setting.amazon.hostname)
+    def amazon_link(asin, hostname = ENV['ENJU_AMAZON_HOSTNAME'])
       return nil if asin.blank?
       "http://#{hostname}/dp/#{asin}"
     end
 
     def book_jacket_source_link
-      case Setting.book_jacket.source
-      when :google
+      case ENV['ENJU_BOOK_JACKET_SOURCE']
+      when "google"
         link_to "Google Books", "http://books.google.com/"
-      when :amazon
+      when "amazon"
         link_to "Amazon Web Services", "http://aws.amazon.com/"
       end
     end
@@ -79,7 +79,7 @@ module EnjuManifestationViewer
     end
 
     def screenshot_generator_link
-      case Setting.screenshot.generator
+      case ENV['ENJU_SCREENSHOT_GENERATOR']
       when :mozshot
         link_to "MozShot", "http://mozshot.nemui.org/"
       when :simpleapi
