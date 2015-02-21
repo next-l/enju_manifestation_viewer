@@ -44,8 +44,8 @@
       }
       var thumb_element = document.getElementById('gbsthumbnail');
       if (thumb_element.innerHTML === "") {
-        <% if ENV['ENJU_BOOK_JACKET_UNKNOWN_RESOURCE'] %>
-          thumb_element.innerHTML = '<%= ENV['ENJU_BOOK_JACKET_UNKNOWN_RESOURCE'] %>';
+        <% if @library_group.settings[:book_jacket_unknown_resource] %>
+          thumb_element.innerHTML = '<%= @library_group.settings[:book_jacket_unknown_resource] %>';
         <% else %>
           thumb_element.innerHTML = '<%= image_tag("unknown_resource.png", size: "150x150", alt: "*") %>';
         <% end %>
