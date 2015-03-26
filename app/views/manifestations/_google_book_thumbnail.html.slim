@@ -1,4 +1,4 @@
-- unless manifestation.identifier_contents(:isbn).empty?
-#gbsthumbnail.book_jacket
-- else
+- if manifestation.identifier_contents(:isbn).empty?
   = image_tag("unknown_resource.png", size: "150x150", alt: "*")
+- else
+  #gbsthumbnail.book_jacket

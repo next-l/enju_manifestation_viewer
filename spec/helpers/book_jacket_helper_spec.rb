@@ -19,7 +19,7 @@ describe EnjuManifestationViewer::BookJacketHelper do
   end
 
   it "should get book jacket" do
-    helper.book_jacket_tag(manifestations(:manifestation_00001)).should =~ /<div id=\"gbsthumbnail\" class=\"book_jacket\"><\/div>/
+    helper.book_jacket_tag(manifestations(:manifestation_00001)).should =~ /<div class=\"book_jacket\" id=\"gbsthumbnail\"><\/div>/
   end
 
   it "should generate a link to Amazon" do

@@ -672,10 +672,6 @@ ActiveRecord::Schema.define(version: 20150221063719) do
 
   create_table "resource_export_files", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "resource_export_file_name"
-    t.string   "resource_export_content_type"
-    t.integer  "resource_export_file_size"
-    t.datetime "resource_export_updated_at"
     t.datetime "executed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -850,10 +846,6 @@ ActiveRecord::Schema.define(version: 20150221063719) do
 
   create_table "user_export_files", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "user_export_file_name"
-    t.string   "user_export_content_type"
-    t.integer  "user_export_file_size"
-    t.datetime "user_export_updated_at"
     t.datetime "executed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
