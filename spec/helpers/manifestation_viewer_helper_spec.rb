@@ -26,7 +26,7 @@ describe EnjuManifestationViewer::ManifestationViewerHelper do
   end
 
   it "should render flickr template" do
-    helper.embed_content(manifestations(:manifestation_00217)).should =~ /<object width="400" height="300"><param name="flashvars"/
+    helper.embed_content(manifestations(:manifestation_00217)).should =~ /<object height="300" width="400"><param name="flashvars"/
   end
 
   #it "should render scribd template" do
