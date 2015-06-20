@@ -1,5 +1,8 @@
 <% unless manifestation.identifier_contents(:isbn).empty? %>
-  <div id="gbsthumbnail" class="book_jacket"></div>
+  <div id="gbsthumbnail<%= manifestation.id %>" class="book_jacket"></div>
+  <script type="text/javascript">
+    gbs_addTheCover( '<%= manifestation.identifier_contents(:isbn).first %>', 'gbsthumbnail<%= manifestation.id %>' );
+  </script>
 <% else %>
   <%= image_tag("unknown_resource.png", size: "150x150", alt: "*") %>
 <% end %>
