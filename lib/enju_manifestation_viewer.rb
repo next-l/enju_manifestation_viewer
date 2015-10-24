@@ -49,5 +49,3 @@ module EnjuManifestationViewer
 end
 
 ActiveRecord::Base.send :include, EnjuManifestationViewer
-ActionView::Base.send :include, EnjuManifestationViewer::ManifestationViewerHelper
-ActionView::Base.send :include, EnjuManifestationViewer::BookJacketHelper
