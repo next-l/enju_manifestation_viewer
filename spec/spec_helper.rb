@@ -8,7 +8,6 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require 'vcr'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -39,9 +38,3 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 end
 
-VCR.configure do |c|
-  c.cassette_library_dir = 'spec/cassette_library'
-  c.hook_into :webmock
-  c.configure_rspec_metadata!
-  c.allow_http_connections_when_no_cassette = true
-end
