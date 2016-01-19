@@ -10,7 +10,7 @@
       thumbnail = parser.href;
     }
     if (thumbnail) {
-      var link = '<img src="' + thumbnail + '" alt="' + book.volumeInfo.title + '" />';
+      var link = '<img src="' + thumbnail + '" alt="' + book.volumeInfo.title + '" class="book_jacket" />';
       if (book.accessInfo && book.accessInfo.viewability != "NO_PAGES") {
 	var preview = book.volumeInfo.previewLink;
         link += '<br /><a href="' + preview + '" target="_blank"><img border=0 src="//www.google.com/googlebooks/images/gbs_preview_button1.gif" title="Google Preview" alt="Google Preview" /></a>';
