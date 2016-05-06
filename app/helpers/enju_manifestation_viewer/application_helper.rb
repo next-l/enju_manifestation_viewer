@@ -1,5 +1,5 @@
 module EnjuManifestationViewer
-  module BookJacketHelper
+  module ApplicationHelper
     def book_jacket(manifestation)
       if manifestation.picture_files.exists?
         link = ''
@@ -88,6 +88,23 @@ module EnjuManifestationViewer
         link_to "HeartRails Capture", "http://capture.heartrails.com/"
       when "thumbalizr"
         link_to "thumbalizr", "http://www.thumbalizr.com/"
+      end
+    end
+
+    def google_book_search_preview(isbn)
+      render :partial => 'manifestations/google_book_search', :locals => {:isbn => isbn}
+    end
+
+    def embed_content(manifestation)
+      case
+      when manifestation.youtube_id
+        render :partial => 'manifestations/youtube', :locals => {:manifestation => manifestation}
+      when manifestation.nicovideo_id
+        render :partial => 'manifestations/nicovideo', :locals => {:manifestation => manifestation}
+      when manifestation.flickr.present?
+        render :partial => 'manifestations/flickr', :locals => {:manifestation => manifestation}
+      when manifestation.respond_to?(:ipaper_id)
+        render :partial => 'manifestations/scribd', :locals => {:manifestation => manifestation}
       end
     end
   end

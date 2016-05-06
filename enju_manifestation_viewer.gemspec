@@ -17,13 +17,12 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"]
 
   #s.add_dependency "enju_biblio", "~> 0.2.0.beta.1"
-  # s.add_dependency "jquery-rails"
 
   #s.add_development_dependency "enju_leaf", "~> 1.2.0.beta.1"
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "mysql2"
+  s.add_development_dependency "mysql2", "~> 0.3.20"
   s.add_development_dependency "pg"
-  s.add_development_dependency "rspec-rails", "~> 3.2"
+  s.add_development_dependency "rspec-rails", "~> 3.3"
   s.add_development_dependency "factory_girl_rails"
   s.add_development_dependency "vcr", "~> 2.9"
   s.add_development_dependency "webmock"

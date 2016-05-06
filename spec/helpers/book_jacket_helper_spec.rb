@@ -11,7 +11,7 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe EnjuManifestationViewer::BookJacketHelper do
+describe EnjuManifestationViewer::ApplicationHelper do
   fixtures :all
 
   it "should get screenshot", :vcr => true do

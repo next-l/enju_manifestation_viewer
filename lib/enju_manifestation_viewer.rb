@@ -1,6 +1,4 @@
 require "enju_manifestation_viewer/engine"
-require "enju_manifestation_viewer/manifestation_viewer_helper"
-require "enju_manifestation_viewer/book_jacket_helper"
 require "addressable/uri"
 
 module EnjuManifestationViewer
@@ -51,5 +49,3 @@ module EnjuManifestationViewer
 end
 
 ActiveRecord::Base.send :include, EnjuManifestationViewer
-ActionView::Base.send :include, EnjuManifestationViewer::ManifestationViewerHelper
-ActionView::Base.send :include, EnjuManifestationViewer::BookJacketHelper
