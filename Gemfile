@@ -12,6 +12,7 @@ gemspec
 gem 'enju_leaf', github: 'next-l/enju_leaf', branch: '1.2'
 gem 'enju_biblio', github: 'next-l/enju_biblio', branch: '1.2'
 gem 'enju_library', github: 'next-l/enju_library', branch: '1.2'
+gem 'codeclimate-test-reporter', group: :test, require: false
 
 # To use debugger
 # gem 'debugger'
