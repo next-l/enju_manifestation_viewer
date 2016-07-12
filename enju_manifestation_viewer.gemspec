@@ -28,5 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "webmock"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "redis-rails"
-  s.add_development_dependency "resque-scheduler", "~> 4.2"
+  s.add_development_dependency "resque", "~> 1.26"
 end
