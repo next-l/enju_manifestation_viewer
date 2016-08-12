@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"]
 
   s.add_dependency "enju_biblio", "~> 0.2.0.beta.1"
-  s.add_dependency "enju_library", "~> 0.2.0.beta.1"
+  s.add_dependency "enju_library", "~> 0.2.0.beta.2"
 
   s.add_development_dependency "enju_leaf", "~> 1.2.0.beta.1"
   s.add_development_dependency "sqlite3"
