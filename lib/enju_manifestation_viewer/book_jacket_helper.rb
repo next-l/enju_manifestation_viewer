@@ -26,7 +26,7 @@ module EnjuManifestationViewer
       link
     end
 
-    def screenshot_tag(manifestation, generator = LibraryGroup.site_config.settings[:screenshot_generator])
+    def screenshot_tag(manifestation, generator = LibraryGroup.site_config.screenshot_generator)
       return nil unless manifestation.try(:access_address)
       case generator
       when "mozshot"
@@ -40,7 +40,7 @@ module EnjuManifestationViewer
       end
     end
 
-    def book_jacket_tag(manifestation, generator = LibraryGroup.site_config.settings[:book_jacket_source])
+    def book_jacket_tag(manifestation, generator = LibraryGroup.site_config.book_jacket_source)
       return nil unless manifestation
       case generator
       when "amazon"
@@ -59,7 +59,7 @@ module EnjuManifestationViewer
       "http://#{hostname}/dp/#{asin}"
     end
 
-    def book_jacket_source_link(source = LibraryGroup.site_config.settings[:book_jacket_source])
+    def book_jacket_source_link(source = LibraryGroup.site_config.book_jacket_source)
       case source
       when "google"
         link_to "Google Books", "http://books.google.com/"
@@ -68,7 +68,7 @@ module EnjuManifestationViewer
       end
     end
 
-    def book_jacket_header(source = LibraryGroup.site_config.settings[:book_jacket_source])
+    def book_jacket_header(source = LibraryGroup.site_config.book_jacket_source)
       string = ''
       case source
       when "google"
@@ -78,7 +78,7 @@ module EnjuManifestationViewer
       string.html_safe
     end
 
-    def screenshot_generator_link(generator = LibraryGroup.site_config.settings[:screenshot_generator])
+    def screenshot_generator_link(generator = LibraryGroup.site_config.screenshot_generator)
       case generator
       when "mozshot"
         link_to "MozShot", "http://mozshot.nemui.org/"
