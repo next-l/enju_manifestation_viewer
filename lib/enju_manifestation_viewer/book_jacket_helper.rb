@@ -51,6 +51,8 @@ module EnjuManifestationViewer
         end
       when "google"
         render partial: 'manifestations/google_book_thumbnail', locals: {manifestation: manifestation}
+      when "hanmotocom"
+        render partial: 'manifestations/hanmotocom_thumbnail', locals: {manifestation: manifestation}
       end
     end
 
