@@ -7,6 +7,5 @@ appraise "rails-5.0" do
   gem 'globalize', github: 'globalize/globalize'
   gem 'activemodel-serializers-xml'
   gem 'rails-controller-testing'
-  gem 'sinatra', github: 'sinatra/sinatra'
-  gem 'rack-protection', github: 'sinatra/rack-protection'
+  gem 'sinatra', '~> 2.0.0.beta2'
 end
