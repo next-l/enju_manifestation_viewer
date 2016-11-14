@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
 # the PatronsHelper. For example:
@@ -10,7 +10,7 @@ require 'spec_helper'
 #     end
 #   end
 # end
-describe EnjuManifestationViewer::ApplicationHelper do
+describe EnjuManifestationViewer::ManifestationViewerHelper do
   fixtures :all
 
   it "should render google_books preview template" do
@@ -26,7 +26,7 @@ describe EnjuManifestationViewer::ApplicationHelper do
   end
 
   it "should render flickr template" do
-    helper.embed_content(manifestations(:manifestation_00217)).should =~ /<object height="300" width="400"><param name="flashvars"/
+    helper.embed_content(manifestations(:manifestation_00217)).should =~ /<object width="400" height="300"><param name="flashvars"/
   end
 
   #it "should render scribd template" do
