@@ -53,6 +53,8 @@ module EnjuManifestationViewer
         render partial: 'manifestations/google_book_thumbnail', locals: {manifestation: manifestation}
       when "hanmotocom"
         render partial: 'manifestations/hanmotocom_thumbnail', locals: {manifestation: manifestation}
+      when "openbd"
+        render partial: 'manifestations/openbd_thumbnail', locals: {manifestation: manifestation}
       end
     end
 
@@ -76,6 +78,8 @@ module EnjuManifestationViewer
       when "google"
         string << javascript_tag(nil, src: "https://www.google.com/jsapi")
         string << render('manifestations/google_book_thumbnail_header')
+      when "openbd"
+        string << render('manifestations/openbd_thumbnail_header')
       end
       string.html_safe
     end

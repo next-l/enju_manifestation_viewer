@@ -29,4 +29,8 @@ describe EnjuManifestationViewer::BookJacketHelper do
     html = helper.book_jacket_tag(manifestations(:manifestation_00001), "hanmotocom")
     expect(html).to have_selector 'img[src="http://www.hanmoto.com/bd/img/9784798002064.jpg"]'
   end
+
+  it "should get openbd book jacket" do
+    helper.book_jacket_tag(manifestations(:manifestation_00001), "openbd").should =~ /<div id=\"openbd_thumbnail1\" class=\"book_jacket\"><\/div>/
+  end
 end
