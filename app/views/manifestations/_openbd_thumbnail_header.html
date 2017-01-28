@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  function openbd_make_thumbnail_link( image, book, element_id ) {
+  function openbd_make_thumbnail_link( book, element_id ) {
     var link = '';
     var thumbnail = book.summary.cover;
     if (thumbnail) {
@@ -16,9 +16,8 @@
       var link = '';
       for (i in books) {
         var book = books[i];
-        var image = book.summary.cover;
-        if (image) {
-          openbd_make_thumbnail_link(image, book, element_id);
+        if (book) {
+          openbd_make_thumbnail_link(book, element_id);
 	}
       }
       var thumb_element = document.getElementById( element_id );
