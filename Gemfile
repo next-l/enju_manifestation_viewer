@@ -13,7 +13,7 @@ gem "enju_leaf", github: "next-l/enju_leaf"
 gem "enju_biblio", github: "next-l/enju_biblio"
 gem "enju_library", github: "next-l/enju_library"
 gem 'codeclimate-test-reporter', group: :test, require: false
-gem "sinatra", "~> 2.0.0.beta2"
+gem "sinatra", "~> 2.0.0.rc2"
 gem "rails-controller-testing"
 
 # To use a debugger
