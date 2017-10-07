@@ -1,7 +1,6 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.1.9
   - 2.2.5
   - 2.3.1
 before_script:
@@ -18,9 +17,6 @@ env:
   - DB=mysql
   - DB=postgresql
 matrix:
-  exclude:
-    - rvm: 2.1.9
-      gemfile: gemfiles/rails_5.0.gemfile
 notifications:
   slack:
     secure: Z8IJxPCkgeKxx0vX8VJwtTUvayrKteo3IQFPvs5MPUaPP+Eu3Xc0mrcH5JqX/2VFG6PbWe1kCxFCci0q2y/ojHQ/OxoRA86jFMEmcn8qQ/q9HWRVQlY57PTWkPTVWi4sn0FGYkPUQ9JJy07TyxPmvAtdDpjl/pnGTJvDU/+3aUg=
