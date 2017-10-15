@@ -1,4 +1,4 @@
-class CreateProduces < ActiveRecord::Migration
+class CreateProduces < ActiveRecord::Migration[5.1]
   def change
     create_table :produces do |t|
       t.references :agent, :null => false
@@ -6,7 +6,5 @@ class CreateProduces < ActiveRecord::Migration
       t.integer :position
       t.timestamps
     end
-    add_index :produces, :agent_id
-    add_index :produces, :manifestation_id
   end
 end

@@ -1,4 +1,4 @@
-class CreateSubscribes < ActiveRecord::Migration
+class CreateSubscribes < ActiveRecord::Migration[5.1]
   def change
     create_table :subscribes do |t|
       t.integer :subscription_id, :null => false

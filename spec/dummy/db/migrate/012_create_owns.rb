@@ -1,4 +1,4 @@
-class CreateOwns < ActiveRecord::Migration
+class CreateOwns < ActiveRecord::Migration[5.1]
   def change
     create_table :owns do |t|
       t.references :agent, :null => false
@@ -6,7 +6,5 @@ class CreateOwns < ActiveRecord::Migration
       t.integer :position
       t.timestamps
     end
-    add_index :owns, :agent_id
-    add_index :owns, :item_id
   end
 end

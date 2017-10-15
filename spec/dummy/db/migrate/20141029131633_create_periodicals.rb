@@ -1,4 +1,4 @@
-class CreatePeriodicals < ActiveRecord::Migration
+class CreatePeriodicals < ActiveRecord::Migration[5.1]
   def change
     create_table :periodicals do |t|
       t.text :original_title

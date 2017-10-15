@@ -1,4 +1,4 @@
-class CreateAccepts < ActiveRecord::Migration
+class CreateAccepts < ActiveRecord::Migration[5.1]
   def change
     create_table :accepts do |t|
       t.integer :basket_id

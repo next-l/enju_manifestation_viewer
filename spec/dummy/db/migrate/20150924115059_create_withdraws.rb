@@ -1,4 +1,4 @@
-class CreateWithdraws < ActiveRecord::Migration
+class CreateWithdraws < ActiveRecord::Migration[5.1]
   def change
     create_table :withdraws do |t|
       t.integer :basket_id

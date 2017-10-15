@@ -1,4 +1,4 @@
-class CreateCreates < ActiveRecord::Migration
+class CreateCreates < ActiveRecord::Migration[5.1]
   def change
     create_table :creates do |t|
       t.references :agent, :null => false
@@ -6,7 +6,5 @@ class CreateCreates < ActiveRecord::Migration
       t.integer :position
       t.timestamps
     end
-    add_index :creates, :agent_id
-    add_index :creates, :work_id
   end
 end
