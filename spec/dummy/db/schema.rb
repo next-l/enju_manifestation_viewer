@@ -384,15 +384,45 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.index ["user_id"], name: "index_import_requests_on_user_id"
   end
 
-  create_table "isbn_records", force: :cascade do |t|
+  create_table "isbn_record_and_manifestations", id: :serial, force: :cascade do |t|
+    t.integer "isbn_record_id", null: false
+    t.uuid "manifestation_id", null: false
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["isbn_record_id"], name: "index_isbn_record_and_manifestations_on_isbn_record_id"
+    t.index ["manifestation_id"], name: "index_isbn_record_and_manifestations_on_manifestation_id"
+  end
+
+  create_table "isbn_records", id: :serial, force: :cascade do |t|
     t.string "body", null: false
     t.string "isbn_type"
     t.string "source"
-    t.bigint "manifestation_id"
+    t.uuid "manifestation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["body"], name: "index_isbn_records_on_body"
     t.index ["manifestation_id"], name: "index_isbn_records_on_manifestation_id"
+  end
+
+  create_table "issn_record_and_manifestations", id: :serial, force: :cascade do |t|
+    t.integer "issn_record_id", null: false
+    t.uuid "manifestation_id", null: false
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issn_record_id"], name: "index_issn_record_and_manifestations_on_issn_record_id"
+    t.index ["manifestation_id"], name: "index_issn_record_and_manifestations_on_manifestation_id"
+  end
+
+  create_table "issn_record_and_periodicals", id: :serial, force: :cascade do |t|
+    t.integer "issn_record_id", null: false
+    t.uuid "periodical_id", null: false
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issn_record_id"], name: "index_issn_record_and_periodicals_on_issn_record_id"
+    t.index ["periodical_id"], name: "index_issn_record_and_periodicals_on_periodical_id"
   end
 
   create_table "issn_records", force: :cascade do |t|
@@ -406,33 +436,28 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.index ["manifestation_id"], name: "index_issn_records_on_manifestation_id"
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "call_number"
     t.string "item_identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
-    t.integer "shelf_id", default: 1, null: false
     t.boolean "include_supplements", default: false, null: false
     t.text "note"
     t.string "url"
     t.integer "price"
     t.integer "lock_version", default: 0, null: false
     t.integer "required_role_id", default: 1, null: false
-    t.integer "required_score", default: 0, null: false
     t.datetime "acquired_at"
     t.integer "bookstore_id"
     t.integer "budget_type_id"
     t.string "binding_item_identifier"
     t.string "binding_call_number"
     t.datetime "binded_at"
-    t.integer "manifestation_id"
+    t.uuid "manifestation_id"
     t.index ["binding_item_identifier"], name: "index_items_on_binding_item_identifier"
     t.index ["bookstore_id"], name: "index_items_on_bookstore_id"
-    t.index ["item_identifier"], name: "index_items_on_item_identifier"
+    t.index ["item_identifier"], name: "index_items_on_item_identifier", unique: true
     t.index ["manifestation_id"], name: "index_items_on_manifestation_id"
-    t.index ["required_role_id"], name: "index_items_on_required_role_id"
-    t.index ["shelf_id"], name: "index_items_on_shelf_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -450,7 +475,7 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.index ["name"], name: "index_languages_on_name", unique: true
   end
 
-  create_table "libraries", force: :cascade do |t|
+  create_table "libraries", id: :serial, force: :cascade do |t|
     t.string "name", null: false
     t.text "display_name"
     t.string "short_display_name", null: false
@@ -464,19 +489,19 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.text "note"
     t.integer "call_number_rows", default: 1, null: false
     t.string "call_number_delimiter", default: "|", null: false
-    t.integer "library_group_id", default: 1, null: false
+    t.integer "library_group_id", null: false
     t.integer "users_count", default: 0, null: false
     t.integer "position"
     t.integer "country_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.datetime "deleted_at"
     t.text "opening_hour"
     t.string "isil"
     t.float "latitude"
     t.float "longitude"
     t.index ["library_group_id"], name: "index_libraries_on_library_group_id"
-    t.index ["name"], name: "index_libraries_on_name", unique: true
+    t.index ["name"], name: "index_libraries_on_name"
   end
 
   create_table "library_groups", force: :cascade do |t|
@@ -535,7 +560,7 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.index ["parent_id"], name: "index_manifestation_relationships_on_parent_id"
   end
 
-  create_table "manifestations", force: :cascade do |t|
+  create_table "manifestations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "original_title", null: false
     t.text "title_alternative"
     t.text "title_transcription"
@@ -623,10 +648,10 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.index ["item_id"], name: "index_owns_on_item_id"
   end
 
-  create_table "periodicals", force: :cascade do |t|
+  create_table "periodicals", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "original_title"
     t.string "periodical_type"
-    t.bigint "manifestation_id"
+    t.uuid "manifestation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manifestation_id"], name: "index_periodicals_on_manifestation_id"
@@ -1029,10 +1054,14 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.index ["item_id"], name: "index_withdraws_on_item_id"
   end
 
+  add_foreign_key "isbn_record_and_manifestations", "isbn_records"
+  add_foreign_key "isbn_record_and_manifestations", "manifestations"
   add_foreign_key "isbn_records", "manifestations"
+  add_foreign_key "issn_record_and_manifestations", "issn_records"
+  add_foreign_key "issn_record_and_manifestations", "manifestations"
+  add_foreign_key "issn_record_and_periodicals", "issn_records"
+  add_foreign_key "issn_record_and_periodicals", "periodicals"
   add_foreign_key "items", "manifestations"
-  add_foreign_key "items", "shelves"
   add_foreign_key "library_groups", "users"
   add_foreign_key "periodicals", "manifestations"
-  add_foreign_key "shelves", "libraries"
 end
