@@ -394,7 +394,7 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.index ["manifestation_id"], name: "index_isbn_record_and_manifestations_on_manifestation_id"
   end
 
-  create_table "isbn_records", id: :serial, force: :cascade do |t|
+  create_table "isbn_records", force: :cascade do |t|
     t.string "body", null: false
     t.string "isbn_type"
     t.string "source"
@@ -475,7 +475,7 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.index ["name"], name: "index_languages_on_name", unique: true
   end
 
-  create_table "libraries", id: :serial, force: :cascade do |t|
+  create_table "libraries", force: :cascade do |t|
     t.string "name", null: false
     t.text "display_name"
     t.string "short_display_name", null: false
@@ -489,17 +489,18 @@ ActiveRecord::Schema.define(version: 20170124074037) do
     t.text "note"
     t.integer "call_number_rows", default: 1, null: false
     t.string "call_number_delimiter", default: "|", null: false
-    t.integer "library_group_id", null: false
+    t.bigint "library_group_id", null: false
     t.integer "users_count", default: 0, null: false
     t.integer "position"
-    t.integer "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.bigint "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.text "opening_hour"
     t.string "isil"
     t.float "latitude"
     t.float "longitude"
+    t.index ["country_id"], name: "index_libraries_on_country_id"
     t.index ["library_group_id"], name: "index_libraries_on_library_group_id"
     t.index ["name"], name: "index_libraries_on_name"
   end
