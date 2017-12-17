@@ -12,7 +12,6 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'factory_girl'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -58,7 +57,4 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
-
-FactoryGirl.definition_file_paths << "#{::Rails.root}/../../spec/factories"
-FactoryGirl.find_definitions
 
