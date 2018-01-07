@@ -18,7 +18,7 @@ describe EnjuManifestationViewer::ManifestationViewerHelper do
   end
 
   it "should render youtube template" do
-    helper.embed_content(manifestations(:manifestation_00022)).should =~ /<param name="movie" value="http:\/\/www.youtube.com\/v\//
+    helper.embed_content(manifestations(:manifestation_00022)).should =~ /<param name="movie" value="https:\/\/www.youtube.com\/v\//
   end
 
   it "should render nicovideo template" do
