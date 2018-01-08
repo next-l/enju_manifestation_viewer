@@ -14,11 +14,11 @@ describe EnjuManifestationViewer::ManifestationViewerHelper do
   fixtures :all
 
   it "should render google_books preview template" do
-    helper.google_book_search_preview(manifestations(:manifestation_00001).isbn_records.first.body).should =~ /<div id='google_book_search_content'>/
+    helper.google_book_search_preview(manifestations(:manifestation_00001).identifier_contents(:isbn).first).should =~ /<div id='google_book_search_content'>/
   end
 
   it "should render youtube template" do
-    helper.embed_content(manifestations(:manifestation_00022)).should =~ /<param name="movie" value="http:\/\/www.youtube.com\/v\//
+    helper.embed_content(manifestations(:manifestation_00022)).should =~ /frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen/
   end
 
   it "should render nicovideo template" do
