@@ -1,6 +1,8 @@
 <% unless manifestation.identifier_contents(:isbn).empty? %>
   <div id="gbsthumbnail<%= manifestation.id %>" class="book_jacket"></div>
-    <%= image_tag("http://www.hanmoto.com/bd/img/#{ Lisbn.new(manifestation.identifier_contents(:isbn).first).isbn13 }.jpg") %>
+  <script type="text/javascript">
+    gbs_addTheCover( '<%= manifestation.identifier_contents(:isbn).first %>', 'gbsthumbnail<%= manifestation.id %>' );
+  </script>
 <% else %>
   <% if @library_group.settings[:book_jacket_unknown_resource] %>
     <%= @library_group.settings[:book_jacket_unknown_resource] %>
