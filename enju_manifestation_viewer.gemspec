@@ -18,12 +18,12 @@ Gem::Specification.new do |s|
 
   s.add_dependency "enju_biblio", "~> 0.2.5"
 
-  s.add_development_dependency "enju_leaf", "~> 1.2.1"
+  s.add_development_dependency "enju_leaf", "~> 1.2.2"
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "mysql2"
-  s.add_development_dependency "pg"
+  s.add_development_dependency "mysql2", "~> 0.4.10"
+  s.add_development_dependency "pg", "~> 0.21"
   s.add_development_dependency "rspec-rails", "~> 3.5"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "coveralls"
-  s.add_development_dependency "capybara"
+  s.add_development_dependency "capybara", "~> 3.1.1"
 end
