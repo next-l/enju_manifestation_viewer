@@ -1,4 +1,8 @@
 module EnjuManifestationViewer
+  module ManifestationViewerHelper
+    include ApplicationHelper
+  end
+
   module ApplicationHelper
     def google_book_search_preview(isbn)
       render :partial => 'manifestations/google_book_search', :locals => {:isbn => isbn}
