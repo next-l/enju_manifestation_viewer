@@ -10,7 +10,7 @@ require 'rails_helper'
 #     end
 #   end
 # end
-describe EnjuManifestationViewer::ManifestationViewerHelper do
+describe EnjuManifestationViewer::ApplicationHelper do
   fixtures :all
 
   it "should render google_books preview template" do
