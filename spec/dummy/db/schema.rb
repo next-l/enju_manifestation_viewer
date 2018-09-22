@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.datetime "updated_at"
     t.index ["basket_id"], name: "index_accepts_on_basket_id"
     t.index ["item_id"], name: "index_accepts_on_item_id"
-    t.index ["librarian_id"], name: "index_accepts_on_librarian_id"
   end
 
   create_table "agent_import_file_transitions", force: :cascade do |t|
@@ -402,7 +401,7 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.text "note"
     t.integer "call_number_rows", default: 1, null: false
     t.string "call_number_delimiter", default: "|", null: false
-    t.integer "library_group_id", null: false
+    t.integer "library_group_id", default: 1, null: false
     t.integer "users_count", default: 0, null: false
     t.integer "position"
     t.integer "country_id"
@@ -414,7 +413,7 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.float "latitude"
     t.float "longitude"
     t.index ["library_group_id"], name: "index_libraries_on_library_group_id"
-    t.index ["name"], name: "index_libraries_on_name"
+    t.index ["name"], name: "index_libraries_on_name", unique: true
   end
 
   create_table "library_group_translations", force: :cascade do |t|
@@ -531,7 +530,7 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.datetime "valid_until"
     t.datetime "date_submitted"
     t.datetime "date_accepted"
-    t.datetime "date_captured"
+    t.datetime "date_caputured"
     t.string "pub_date"
     t.string "edition_string"
     t.integer "volume_number"
@@ -684,10 +683,6 @@ ActiveRecord::Schema.define(version: 20180107161410) do
 
   create_table "resource_export_files", force: :cascade do |t|
     t.integer "user_id"
-    t.string "resource_export_file_name"
-    t.string "resource_export_content_type"
-    t.integer "resource_export_file_size"
-    t.datetime "resource_export_updated_at"
     t.datetime "executed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -808,7 +803,7 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.string "name", null: false
     t.text "display_name"
     t.text "note"
-    t.integer "library_id", null: false
+    t.integer "library_id", default: 1, null: false
     t.integer "items_count", default: 0, null: false
     t.integer "position"
     t.datetime "created_at"
@@ -853,19 +848,13 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.index ["sort_key", "user_export_file_id"], name: "index_user_export_file_transitions_on_sort_key_and_file_id", unique: true
     t.index ["user_export_file_id", "most_recent"], name: "index_user_export_file_transitions_parent_most_recent", unique: true, where: "most_recent"
     t.index ["user_export_file_id"], name: "index_user_export_file_transitions_on_file_id"
-    t.index ["user_export_file_id"], name: "index_user_export_file_transitions_on_user_export_file_id"
   end
 
   create_table "user_export_files", force: :cascade do |t|
     t.integer "user_id"
-    t.string "user_export_file_name"
-    t.string "user_export_content_type"
-    t.integer "user_export_file_size"
-    t.datetime "user_export_updated_at"
     t.datetime "executed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["user_id"], name: "index_user_export_files_on_user_id"
   end
 
   create_table "user_groups", force: :cascade do |t|
@@ -908,7 +897,7 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.datetime "executed_at"
     t.string "user_import_file_name"
     t.string "user_import_content_type"
-    t.integer "user_import_file_size"
+    t.string "user_import_file_size"
     t.datetime "user_import_updated_at"
     t.string "user_import_fingerprint"
     t.string "edit_mode"
@@ -918,7 +907,6 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.string "user_encoding"
     t.integer "default_library_id"
     t.integer "default_user_group_id"
-    t.index ["user_id"], name: "index_user_import_files_on_user_id"
   end
 
   create_table "user_import_results", force: :cascade do |t|
@@ -928,8 +916,6 @@ ActiveRecord::Schema.define(version: 20180107161410) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text "error_message"
-    t.index ["user_id"], name: "index_user_import_results_on_user_id"
-    t.index ["user_import_file_id"], name: "index_user_import_results_on_user_import_file_id"
   end
 
   create_table "users", force: :cascade do |t|
