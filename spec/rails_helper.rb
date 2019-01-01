@@ -1,5 +1,7 @@
 require 'simplecov'
-SimpleCov.start
+require 'coveralls'
+SimpleCov.start 'rails'
+Coveralls.wear!
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
@@ -8,9 +10,8 @@ require File.expand_path('../../spec/dummy/config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'capybara/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'factory_bot'
-require 'pundit/rspec'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -56,7 +57,4 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
-
-FactoryBot.definition_file_paths << "#{::Rails.root}/../../spec/factories"
-FactoryBot.find_definitions
 

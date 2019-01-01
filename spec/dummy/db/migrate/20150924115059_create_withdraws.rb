@@ -1,13 +1,11 @@
-class CreateWithdraws < ActiveRecord::Migration[5.1]
+class CreateWithdraws < ActiveRecord::Migration[4.2]
   def change
     create_table :withdraws do |t|
-      t.integer :basket_id
-      t.integer :item_id
-      t.integer :librarian_id
+      t.references :basket, index: true
+      t.references :item, index: true
+      t.references :librarian, index: true
 
       t.timestamps null: false
     end
-    add_index :withdraws, :basket_id
-    add_index :withdraws, :item_id
   end
 end

@@ -1,4 +1,4 @@
-class CreateProfiles < ActiveRecord::Migration[5.1]
+class CreateProfiles < ActiveRecord::Migration[4.2]
   def change
     create_table :profiles do |t|
       t.integer :user_id
@@ -15,6 +15,6 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
     end
 
     add_index :profiles, :user_id
-    add_index :profiles, :user_number, :unique => true
+    add_index :profiles, :user_number, unique: true
   end
 end

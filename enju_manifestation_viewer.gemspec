@@ -14,17 +14,14 @@ Gem::Specification.new do |s|
   s.description = "embed external contents on Next-L Enju"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"]
+  s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"] - Dir["spec/dummy/db/*.sqlite3"]
 
-  #s.add_dependency "enju_biblio", "~> 0.2.0"
+  s.add_dependency "enju_biblio", "~> 0.4.0.beta.1"
 
-  #s.add_development_dependency "enju_leaf", "~> 1.2.0"
+  s.add_development_dependency "enju_leaf", "~> 1.4.0.beta.1"
   s.add_development_dependency "pg"
-  s.add_development_dependency "rspec-rails", "~> 3.5"
-  s.add_development_dependency "factory_bot_rails"
-  s.add_development_dependency "vcr", "~> 4.0"
-  s.add_development_dependency "webmock"
+  s.add_development_dependency "rspec-rails", "~> 3.7"
   s.add_development_dependency "simplecov"
-  s.add_development_dependency "redis-rails"
-  s.add_development_dependency "resque"
+  s.add_development_dependency "coveralls"
+  s.add_development_dependency "capybara", "~> 3.11"
 end

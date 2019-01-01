@@ -1,12 +1,12 @@
-class CreateUserImportFiles < ActiveRecord::Migration[5.1]
+class CreateUserImportFiles < ActiveRecord::Migration[4.2]
   def change
     create_table :user_import_files do |t|
-      t.integer :user_id
+      t.references :user, index: true
       t.text :note
       t.datetime :executed_at
       t.string :user_import_file_name
       t.string :user_import_content_type
-      t.string :user_import_file_size
+      t.integer :user_import_file_size
       t.datetime :user_import_updated_at
       t.string :user_import_fingerprint
       t.string :edit_mode
