@@ -26,12 +26,12 @@ describe EnjuManifestationViewer::BookJacketHelper do
   end
 
   it "should generate a link to Amazon" do
-    helper.amazon_link(manifestations(:manifestation_00001).identifier_contents(:isbn).first).should =~ /http:\/\/www.amazon.co.jp\/dp\/4798002062/
+    helper.amazon_link(manifestations(:manifestation_00001).isbn_records.first.body).should =~ /http:\/\/www.amazon.co.jp\/dp\/4798002062/
   end
 
   it "should get honmoto.com book jacket" do
     html = helper.book_jacket_tag(manifestations(:manifestation_00001), "hanmotocom")
-    expect(html).to have_selector 'img[src="http://www.hanmoto.com/bd/img/9784798002064.jpg"]'
+    expect(html).to have_selector 'img[src="https://www.hanmoto.com/bd/img/9784798002064.jpg"]'
   end
 
   it "should get openbd book jacket" do

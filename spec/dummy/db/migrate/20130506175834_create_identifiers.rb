@@ -9,7 +9,7 @@ class CreateIdentifiers < ActiveRecord::Migration[4.2]
 
       t.timestamps
     end
-    add_index :identifiers, %i[body identifier_type_id]
+    add_index :identifiers, [:body, :identifier_type_id]
     add_index :identifiers, :manifestation_id
   end
 end
