@@ -443,7 +443,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_034126) do
     t.index ["name"], name: "index_languages_on_name", unique: true
   end
 
-  create_table "libraries", force: :cascade do |t|
+  create_table "libraries", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.jsonb "display_name", default: {}, null: false
     t.string "short_display_name", null: false
@@ -660,7 +660,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_034126) do
 
   create_table "profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_group_id", null: false
-    t.bigint "library_id"
+    t.uuid "library_id"
     t.string "locale"
     t.string "user_number"
     t.text "full_name"
@@ -853,7 +853,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_034126) do
     t.string "name", null: false
     t.jsonb "display_name", default: {}, null: false
     t.text "note"
-    t.bigint "library_id", null: false
+    t.uuid "library_id", null: false
     t.integer "items_count", default: 0, null: false
     t.integer "position", default: 1, null: false
     t.datetime "created_at", null: false
@@ -958,7 +958,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_034126) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "user_encoding"
-    t.bigint "default_library_id"
+    t.uuid "default_library_id"
     t.uuid "default_user_group_id"
     t.index ["default_library_id"], name: "index_user_import_files_on_default_library_id"
     t.index ["default_user_group_id"], name: "index_user_import_files_on_default_user_group_id"
