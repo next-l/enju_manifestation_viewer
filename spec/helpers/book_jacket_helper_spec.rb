@@ -17,7 +17,7 @@ describe EnjuManifestationViewer::BookJacketHelper do
     assign(:library_group, LibraryGroup.first)
   end
 
-  it "should get screenshot", :vcr => true do
+  it "should get screenshot", vcr: true do
     helper.screenshot_tag(manifestations(:manifestation_00003)).should =~ /<a href=\"http:\/\/www.slis.keio.ac.jp\/\">/
   end
 

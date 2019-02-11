@@ -1,7 +1,7 @@
 <% unless manifestation.isbn_records.empty? %>
   <div id="openbd_thumbnail_<%= manifestation.id %>" class="book_jacket"></div>
   <script type="text/javascript">
-    openbd_addTheCover( '<%= manifestation.isbn_records.first.body %>', 'openbd_thumbnail<%= manifestation.id %>' );
+    openbd_addTheCover( '<%= manifestation.isbn_records.first.body %>', 'openbd_thumbnail_<%= manifestation.id %>' );
   </script>
 <% else %>
   <% if @library_group.settings[:book_jacket_unknown_resource] %>

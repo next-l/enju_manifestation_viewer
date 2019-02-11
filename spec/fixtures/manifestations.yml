@@ -1819,15 +1819,12 @@ manifestation_00216:
   repository_content: false
 manifestation_00217:
   carrier_type_id: 1
-  language_id: 1
-  updated_at: 2010-03-19 13:00:00 +09:00
+  language_id: 77
+  updated_at: 2014-12-20 16:44:00 +09:00
   original_title: "Flickr"
-  price:
-  manifestation_identifier:
-  depth:
-  date_of_publication:
-  access_address: http://www.flickr.com/photos/japan_library_association/sets/72157626376861041/
+  content_type_id: 1
   id: 1d3f3170-24ea-474d-9a22-28f7f6742b45
+  access_address: http://www.flickr.com/photos/japan_library_association/sets/72157626376861041/
   created_at: 2010-03-19 13:00:00 +9:00
   required_role_id: 1
   repository_content: false
