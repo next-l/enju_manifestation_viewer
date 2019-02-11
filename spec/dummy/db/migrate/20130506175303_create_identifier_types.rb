@@ -1,6 +1,6 @@
-class CreateBudgetTypes < ActiveRecord::Migration[5.2]
+class CreateIdentifierTypes < ActiveRecord::Migration[5.2]
   def change
-    create_table :budget_types do |t|
+    create_table :identifier_types do |t|
       t.string :name, index: {unique: true}, null: false
       t.jsonb :display_name, default: {}, null: false
       t.text :note
