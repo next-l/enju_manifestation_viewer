@@ -27,7 +27,7 @@ module EnjuManifestationViewer
 
       case generator
       when "mozshot"
-        link_to image_tag("http://mozshot.nemui.org/shot?#{manifestation.access_address}", width: 128, height: 128, alt: manifestation.original_title, border: 0, itemprop: 'image'), manifestation.access_address
+        link_to image_tag("https://blinky.nemui.org/shot?#{manifestation.access_address}", width: 128, height: 128, alt: manifestation.original_title, border: 0, itemprop: 'image'), manifestation.access_address
       when "simpleapi"
         link_to image_tag("http://img.simpleapi.net/small/#{manifestation.access_address}", width: 128, height: 128, alt: manifestation.original_title, border: 0, itemprop: 'image'), manifestation.access_address
       when "heartrails"
