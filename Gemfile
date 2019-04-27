@@ -13,3 +13,4 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+gem 'rspec_junit_formatter', group: :test
