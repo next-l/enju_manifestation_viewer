@@ -19,4 +19,7 @@ gem 'enju_leaf', github: 'next-l/enju_leaf'
 gem 'enju_library', github: 'next-l/enju_library'
 gem 'enju_biblio', github: 'next-l/enju_biblio'
 gem 'jquery-rails'
-gem 'rspec_junit_formatter', group: :test
+group :test do
+  gem 'rails-controller-testing'
+  gem 'rspec_junit_formatter'
+end

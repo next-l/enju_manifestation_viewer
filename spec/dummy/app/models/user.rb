@@ -7,3 +7,4 @@ class User < ActiveRecord::Base
 end
 
 Manifestation.include(EnjuManifestationViewer::EnjuManifestation)
+Item.include(EnjuLibrary::EnjuItem)
