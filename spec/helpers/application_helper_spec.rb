@@ -22,7 +22,7 @@ describe EnjuManifestationViewer::ApplicationHelper do
   end
 
   it "should render nicovideo template" do
-    helper.embed_content(manifestations(:manifestation_00023)).should =~ /<script type="text\/javascript" src="http:\/\/ext.nicovideo.jp\/thumb_watch\//
+    helper.embed_content(manifestations(:manifestation_00023)).should =~ /<script type="application\/javascript" src="https:\/\/embed.nicovideo.jp\/watch\//
   end
 
   it "should render flickr template" do
