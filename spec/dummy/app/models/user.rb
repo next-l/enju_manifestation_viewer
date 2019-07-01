@@ -10,3 +10,4 @@ class User < ActiveRecord::Base
 end
 
 Item.include(EnjuLibrary::EnjuItem)
+Manifestation.include(EnjuManifestationViewer::EnjuManifestation)
