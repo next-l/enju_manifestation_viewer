@@ -35,27 +35,27 @@ identifier_00004:
   body: 0471412791
 
 identifier_00005:
-  manifestation_id: 5
+  manifestation_id: 7
   identifier_type_id: 1
   body: 0470844701
 
 identifier_00006:
-  manifestation_id: 6
+  manifestation_id: 8
   identifier_type_id: 1
   body: "4798101028"
 
 identifier_00007:
-  manifestation_id: 7
+  manifestation_id: 9
   identifier_type_id: 1
   body: "4641143331"
 
 identifier_00008:
-  manifestation_id: 8
+  manifestation_id: 10
   identifier_type_id: 1
   body: "9784774127804"
 
 identifier_00009:
-  manifestation_id: 9
+  manifestation_id: 21
   identifier_type_id: 1
   body: "4822281167"
 
@@ -108,12 +108,12 @@ identifier_00217:
 #
 # Table name: identifiers
 #
-#  id                 :bigint(8)        not null, primary key
-#  body               :string           not null
-#  identifier_type_id :bigint(8)        not null
-#  manifestation_id   :uuid             not null
+#  id                 :integer          not null, primary key
+#  body               :string(255)      not null
+#  identifier_type_id :integer          not null
+#  manifestation_id   :integer
 #  primary            :boolean
 #  position           :integer
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  created_at         :datetime
+#  updated_at         :datetime
 #
