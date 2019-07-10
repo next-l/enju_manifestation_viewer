@@ -15,6 +15,7 @@ script:
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 services:
+  - postgresql
   - redis-server
 notifications:
   slack:
