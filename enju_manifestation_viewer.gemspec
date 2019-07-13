@@ -1,4 +1,4 @@
-$:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
 require "enju_manifestation_viewer/version"
@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   s.summary     = "enju_manifestation_viewer plugin"
   s.description = "embed external contents on Next-L Enju"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"] - Dir["spec/dummy/db/*.sqlite3"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"]
 
   s.add_dependency "enju_biblio", "~> 0.4.0.beta.1"
 
