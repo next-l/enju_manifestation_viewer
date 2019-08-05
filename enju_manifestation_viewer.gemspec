@@ -26,4 +26,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "simplecov"
   s.add_development_dependency "coveralls"
   s.add_development_dependency "capybara", "~> 3.11", "< 3.16"
+  s.add_development_dependency "rails", "~> 5.2"
 end
