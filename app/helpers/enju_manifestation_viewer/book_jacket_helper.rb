@@ -46,7 +46,7 @@ module EnjuManifestationViewer
 
         book_jacket = manifestation.amazon_book_jacket
         if book_jacket
-          link_to image_tag(book_jacket[:url], width: book_jacket[:width], height: book_jacket[:height], alt: manifestation.original_title, class: 'book_jacket', itemprop: 'image'), "http://#{LibraryGroup.site_config.settings[:amazon_hostname]}/dp/#{book_jacket[:asin]}"
+          link_to image_tag(book_jacket[:url], width: book_jacket[:width], height: book_jacket[:height], alt: manifestation.original_title, class: 'book_jacket', itemprop: 'image'), "https://#{LibraryGroup.site_config.settings[:amazon_hostname]}/dp/#{book_jacket[:asin]}"
         end
       when "google"
         render partial: 'manifestations/google_book_thumbnail', locals: {manifestation: manifestation}
@@ -60,15 +60,15 @@ module EnjuManifestationViewer
     def amazon_link(asin, hostname = LibraryGroup.site_config.settings[:amazon_hostname])
       return nil if asin.blank?
 
-      "http://#{hostname}/dp/#{asin}"
+      "https://#{hostname}/dp/#{asin}"
     end
 
     def book_jacket_source_link(source = LibraryGroup.site_config.book_jacket_source)
       case source
       when "google"
-        link_to "Google Books", "http://books.google.com/"
+        link_to "Google Books", "https://books.google.com/"
       when "amazon"
-        link_to "Amazon Web Services", "http://aws.amazon.com/"
+        link_to "Amazon Web Services", "https://aws.amazon.com/"
       end
     end
 
@@ -87,13 +87,13 @@ module EnjuManifestationViewer
     def screenshot_generator_link(generator = LibraryGroup.site_config.screenshot_generator)
       case generator
       when "mozshot"
-        link_to "MozShot", "http://mozshot.nemui.org/"
+        link_to "MozShot", "https://blinky.nemui.org/"
       when "simpleapi"
         link_to "SimpleAPI", "http://img.simpleapi.net/"
       when "heartrails"
         link_to "HeartRails Capture", "http://capture.heartrails.com/"
       when "thumbalizr"
-        link_to "thumbalizr", "http://www.thumbalizr.com/"
+        link_to "thumbalizr", "https://www.thumbalizr.com/"
       end
     end
   end
