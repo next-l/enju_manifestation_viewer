@@ -1,7 +1,6 @@
 # EnjuManifestationViewer
-[![CircleCI](https://circleci.com/gh/next-l/enju_manifestation_viewer.svg?style=svg)](https://circleci.com/gh/next-l/enju_manifestation_viewer)
+![](https://github.com/next-l/enju_manifestation_viewer/workflows/Ruby/badge.svg?branch=2.x)
 [![Coverage Status](https://coveralls.io/repos/github/next-l/enju_manifestation_viewer/badge.svg?branch=master)](https://coveralls.io/github/next-l/enju_manifestation_viewer?branch=master)
-[![security](https://hakiri.io/github/next-l/enju_manifestation_viewer/master.svg)](https://hakiri.io/github/next-l/enju_manifestation_viewer/master)
 
 This project rocks and uses MIT-LICENSE.
 
