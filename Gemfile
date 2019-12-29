@@ -19,3 +19,4 @@ group :test do
   gem 'webdrivers'
 end
 gem 'rails-i18n'
+gem 'jquery-rails'

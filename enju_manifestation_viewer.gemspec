@@ -31,5 +31,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency "puma"
   s.add_development_dependency "sprockets", "~> 3.7"
   s.add_development_dependency "rails", "~> 5.2"
-  s.add_development_dependency "jquery-rails"
 end
