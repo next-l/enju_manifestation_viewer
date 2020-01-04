@@ -14,7 +14,7 @@ gemspec
 # To use debugger
 # gem 'debugger'
 gem 'sassc-rails'
-gem 'paper_trail'
+gem 'jquery-rails'
 gem 'rails-i18n'
 group :test do
   gem 'rails-controller-testing'
