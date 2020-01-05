@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "embed external contents on Next-L Enju"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
-  s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/log/*"]
+  s.test_files = Dir["spec/**/*"] - Dir["spec/dummy/{log,private,solr,tmp}/**/*"]
 
   s.add_dependency "enju_biblio", "~> 0.4.0.rc.1"
 
