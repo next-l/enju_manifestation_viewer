@@ -15,8 +15,8 @@ gemspec
 # gem 'debugger'
 gem 'rails', '~> 5.2'
 gem 'sassc-rails'
-gem 'jquery-rails'
 gem 'rails-i18n'
+gem 'webpacker'
 group :test do
   gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'

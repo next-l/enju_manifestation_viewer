@@ -28,5 +28,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sunspot_solr", "~> 2.5"
   s.add_development_dependency "selenium-webdriver"
   s.add_development_dependency "puma"
-  s.add_development_dependency "sprockets", "~> 3.7"
 end
