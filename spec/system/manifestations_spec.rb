@@ -5,7 +5,7 @@ RSpec.describe 'Manifestations', type: :system do
   fixtures :all
   before do
     @manifestation = FactoryBot.create(:manifestation)
-    CarrierType.find_by(name: 'volume').attachment.attach(io: File.open("#{Rails.root.to_s}/app/assets/images/icons/book.png"), filename: 'attachment.png')
+    CarrierType.find_by(name: 'volume').attachment.attach(io: File.open("#{Rails.root.to_s}/examples/book.png"), filename: 'attachment.png')
   end
 
   describe 'When logged in as Librarian' do
