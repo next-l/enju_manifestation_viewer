@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "enju_biblio", "~> 0.4.0.rc.1"
 
   s.add_development_dependency "pg"
-  s.add_development_dependency "rspec-rails", "~> 4.0"
+  s.add_development_dependency "rspec-rails", "~> 5.0"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "coveralls", '~> 0.8.23'
   s.add_development_dependency "capybara"
